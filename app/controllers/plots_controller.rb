@@ -4,9 +4,15 @@ class PlotsController < ApplicationController
   end
 
   def update
-    plot = Plot.find(params[:id])
-    plant = Plant.find_by_name(params[:name])
+    binding.pry
+    plot = Plot.find(params[:plot_id])
+    plant = Plant.find(params[:id])
     plant.delete(params[:plot_id])
     redirect_to "/plots"
+  end
+
+  private
+  def plot_params
+    params.permit(:number, :size, :direction, :garden_id)
   end
 end

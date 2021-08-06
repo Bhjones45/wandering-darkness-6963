@@ -3,6 +3,6 @@
 Plot number: <%= plot.number %>
   <% plot.plants.each do |plant| %>
   <%= plant.name %>
-  <%= link_to "Remove #{plant.name} from plot", "/plots/plot_id", method: :patch %>
+  <%= link_to "Remove #{plant.name} from plot", "/plots/plot_id", params: {plot_id: plot.id}, method: :patch %>
   <% end %>
 <% end %>
