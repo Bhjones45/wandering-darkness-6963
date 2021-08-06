@@ -18,9 +18,7 @@ RSpec.describe 'garden show spec' do
 
     visit "/gardens/#{garden.id}"
 
-    expect(page).to have_content(plot1.number)
     expect(page).to have_content(plant1.name)
-    expect(page).to have_content(plot2.number)
     expect(page).to have_content(plant2.name)
   end
 end
