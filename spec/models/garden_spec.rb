@@ -20,7 +20,7 @@ RSpec.describe Garden do
     plot_plants1 = PlotPlant.create!(plant: plant2, plot: plot2)
     plot_plants1 = PlotPlant.create!(plant: plant3, plot: plot2)
     plot_plants1 = PlotPlant.create!(plant: plant4, plot: plot1)
-save_and_open_page
-    expect(garden.list_plants).to eq([plant1, plant2, plant3])
+
+    expect(garden.list_plants).to eq([plant1.name, plant2.name])
   end
 end

@@ -3,8 +3,9 @@ class Garden < ApplicationRecord
 
   def list_plants
     plots.joins(:plants)
-    .select('DISTINCT plants.*')
+    .select(:plants)
+    .distinct
     .where('days_to_harvest < 100')
-    .order('plants.id')
+    .pluck(:name)
   end
 end
