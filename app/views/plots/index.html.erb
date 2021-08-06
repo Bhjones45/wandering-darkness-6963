@@ -3,6 +3,8 @@
 Plot number: <%= plot.number %>
   <% plot.plants.each do |plant| %>
   <%= plant.name %>
-  <%= link_to "Remove #{plant.name} from plot", "/plots/plot_id", params: {plot_id: plot.id}, method: :patch %>
+  <%= form_with url: "/plots/#{plot.id}/plants/#{plant.id}", method: :delete, local: true do |form| %>
+    <%= form.submit "Remove #{plant.name} from plot" %>
+    <% end %>
   <% end %>
 <% end %>
