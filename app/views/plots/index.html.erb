@@ -1,7 +1,8 @@
 <h1>Plots</h1>
 <% @plots.each do |plot| %><br>
-Plot number: <%= plot.number %><br>
+Plot number: <%= plot.number %>
   <% plot.plants.each do |plant| %>
   <%= plant.name %>
+  <%= link_to "Remove #{plant.name} from plot", "/plots/plot_id", method: :patch %>
   <% end %>
 <% end %>
